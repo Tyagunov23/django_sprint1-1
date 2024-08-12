@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Лента публикации{% endblock %}
+{% block content %}
+  <h1> Лента публикации </h1>
+  {% for post in posts %}
+  <article>
+    <ul>
+      <li>
+        {{ post.location }}            
+      </li>
+      <li>
+        {{ post.date }}   
+      </li>
+      <li>
+        Категория: <a href="{% url 'blog:category' post.category %}">{{ post.category }}</a>
+      </li>
+    </ul>          
+    <!-- Первые 10 слов -->
+    <p>
+      {{ post.text|truncatewords:10 }}
+    </p>
+    <a href="{% url 'blog:index'%}">Читать полный текст</a>
+  </article>
+  {% endfor %}
+{% endblock %}
