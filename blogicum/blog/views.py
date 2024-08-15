@@ -50,10 +50,10 @@ def index(request):
 
 def post_detail(request, id):
     templates = 'blog/detail.html'
-    context = {'posts': posts[id]}
+    context = {'post': posts[id]}
     return render(request, templates, context)
 
-def category_post(request, category_slug):
+def category_posts(request, category_slug):
     templates = 'blog/category.html'
     context = {'category_slug': category_slug}
     return render(request, templates, context)
