@@ -43,6 +43,8 @@ posts = [
     },
 ]
 
+posts_dict = {post['id']: post for post in posts}
+
 
 def index(request):
     context = {'posts': reversed(posts)}
@@ -50,6 +52,9 @@ def index(request):
 
 
 def post_detail(request, id):
+    if id not in posts_dict:
+        raise Http404("Пост не найден")
+
     context = {'post': posts[id]}
     return render(request, 'blog/detail.html', context)
 
