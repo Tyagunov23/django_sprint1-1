@@ -8,8 +8,8 @@
     </li> 
     <li> 
       Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a> 
-     </li> 
-   </ul>           
+    </li> 
+  </ul>           
   <p> 
     {{ post.text|linebreaks }} 
   </p> 
